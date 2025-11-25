@@ -46,7 +46,7 @@ def run_func(binary_data):
     # 함수 가져오기
     func = mod.get_function("test_func")
 
-    # 커널 실행
+    # 함수 실행
     func(block=(1, 1, 1), grid=(1, 1))
 
     # gpu 작업 완료 대기
