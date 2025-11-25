@@ -1,5 +1,6 @@
 # cubin-runtime-patcher
-cubin 기계어 동적 수정 <br><br>
+cubin 기계어 동적 수정 <br>
+(참고: [cuda 컴파일 과정](background.pdf)) <br><br>
 환경 <br>
 ```
 gpu: A6000
