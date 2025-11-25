@@ -67,7 +67,7 @@ with open("test.cubin", "rb") as f:
 ```
 
 ### binary 수정
-nvidia gpu에서는 little endian을 사용하므로 `0x00000002ff007424`를 `24 74 00 ff 20 00 00 00` 으로 뒤집어서 찾아야 한다.<br>
+nvidia gpu에서는 little endian을 사용하므로 `0x00000002ff007424`를 `24 74 00 ff 02 00 00 00` 으로 뒤집어서 찾아야 한다.<br>
 ```python
 target_pattern = b"\x24\x74\x00\xff\x02\x00\x00\x00"
 offset = binary_data.find(target_pattern)
