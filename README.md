@@ -29,7 +29,7 @@ val 변수에 2 대입하는 코드 (`volatile` 키워드로 컴파일러 최적
 주석 처리 되어 있는 부분은 나중에 실제로 GPU에서 실행되고 있는지 파악하기 위한 딜레이 로직 <br>
 
 ## 2. cubin 생성
-A6000 기준 ampere 아키텍쳐는 `sm_86`  ([NVCC 문서](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/#gpu-feature-list) 참고)
+A6000 기준 ampere 아키텍쳐는 `sm_86`  ([NVCC 문서](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/#gpu-feature-list), [CUDA GPU Compute Capability](https://developer.nvidia.com/cuda-gpus) 참고)
 
 `nvcc -cubin -arch=sm_86 test.cu test.cubin` 으로 컴파일<br>
 -cubin 옵션을 통해 fatbin 생성을 스킵하고, 바로 cubin을 만듦 <br>
