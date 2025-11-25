@@ -1,8 +1,7 @@
-import numpy as np
 import pycuda.autoinit
 import pycuda.driver as cuda
 
-CHANGE_VALUE = 3
+CHANGE_VALUE = 5
 
 
 def init():
