@@ -60,6 +60,12 @@ A6000 기준 ampere 아키텍쳐는 `sm_86`  ([NVCC 문서](https://docs.nvidia.
 
 ## 4. runtime patcher (python)
 
+### cubin 메모리에 로드
+```python
+with open("test.cubin", "rb") as f:
+  binary_data = bytearray(f.read())
+```
+
 ### binary 수정
 nvidia gpu에서는 little endian을 사용하므로 `0x00000002ff007424`를 `24 74 00 ff 20 00 00 00` 으로 뒤집어서 찾아야 한다.<br>
 ```python
@@ -78,7 +84,7 @@ val_offset = offset + 4
 binary_data[val_offset] = 5 # 변경할 숫자 대입
 ```
 
-### cubin 파일 메모리에 올리기
+### cubin gpu에 로드하기
 cubin 파일을 메모리에 로드 후, 메모리에서 binary를 수정하고 바로 gpu에 올리도록 구현했다. <br>
 이를 위해 [cuModuleLoadData](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__MODULE.html#group__CUDA__MODULE_1g04ce266ce03720f479eab76136b90c0b)를 이용했고 python에서는 `pycuda` 패키지를 이용하여 `cuModuleLoadData` 를 사용하기 편하게 래핑해놓은 [module_from_buffer](https://documen.tician.de/pycuda/driver.html#pycuda.driver.module_from_buffer)를 사용하여 구현했다. <br>
 
